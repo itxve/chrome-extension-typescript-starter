@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  & .ant-tabs-top>.ant-tabs-nav::before {
+    border-bottom: none
+  }
+
+  & .setting {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 8vh;
+
+  }
+
+  & .setting:hover {
+    background-color: rgb(218, 200, 174);
+    color: white;
+  }
+}
+
+
+
+.giteeCard {
+  width: 60vw;
+  opacity: .85;
+
+  // & .ant-form-item {
+  //   margin-bottom: 0;
+  // }
+
+
+  & .ant-input,
+  .ant-input-password {
+    border-radius: 50px;
+  }
+
+  & .ant-form-item-label>label {
+    font-size: 16px;
+    color: rgba(133, 11, 220, 0.85);
+  }
+}
+
+.icon-setting {
+  width: 21px;
+  height: 21px;
+
+  &:hover {
+    transition: all 1s;
+
+    animation: setting 4s;
+  }
+
+}
+
+
+@keyframes setting {
+
+  0%,
+  50%,
+  75%,
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.action {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & .ant-btn {
+    width: 30vh;
+
+    &:nth-child(1) {
+      border-radius: 40px 0 0 40px;
+    }
+
+    &:nth-child(2) {
+      background-color: rgba(192, 6, 177, 0.755);
+      color: seashell;
+      border-radius: 0 40px 40px 0;
+    }
+  }
+
+}

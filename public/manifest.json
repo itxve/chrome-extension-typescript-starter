@@ -1,33 +1,43 @@
 {
-  "manifest_version": 2,
-
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "manifest_version": 3,
+  "name": "Notion Chrome ExtensioStarter",
+  "description": "notion  上出啊",
   "version": "1.0",
-
-  "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16x16.png",
+      "32": "icons/icon32x32.png",
+      "48": "icons/icon48x48.png",
+      "64": "icons/icon64x64.png"
+    },
+    "default_title": "Open Page"
   },
-
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-
-  "content_scripts": [
-      {
-          "matches": ["<all_urls>"],
-          "js": ["js/vendor.js", "js/content_script.js"]
-      }
-  ],
-
   "background": {
-    "scripts": ["js/vendor.js", "js/background.js"]
+    "service_worker": "background.js"
   },
-
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.notion.so/*"
+      ],
+      "js": [
+        "vendor.js",
+        "content_script.js"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://www.notion.so/*"
+    ]
+  },
+  "options_page": "options.html",
   "permissions": [
     "storage",
-    "<all_urls>"
+    "activeTab",
+    "webRequest"
   ]
 }
